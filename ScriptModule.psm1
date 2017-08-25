@@ -5,14 +5,14 @@
 
 # load classes
 
-foreach ($classFile in (Get-ChildItem -Path '.\Classes' -Recurse -Include "*.ps1"))
+foreach ($classFile in (Get-ChildItem -Path "$PSScriptRoot\Classes" -Recurse -Include "*.ps1"))
 {
     . $classFile
 }
 
 # load functions
 
-foreach ($functionFile in (Get-ChildItem -Path '.\Functions' -Recurse -Include "*.ps1"))
+foreach ($functionFile in (Get-ChildItem -Path "$PSScriptRoot\Functions" -Recurse -Include "*.ps1"))
 {
     . $functionFile
 }
