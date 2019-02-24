@@ -1,5 +1,5 @@
 # load the module
-Import-Module .\ScriptModule.psm1
+Import-Module SampleModule -Force
 
 # run tests
 Describe "New-SimpleItem public function tests" {
@@ -11,7 +11,7 @@ Describe "New-SimpleItem public function tests" {
         }
         It "Returns the correct type" {
             $item = New-SimpleItem -Name 'Cool' -Age 30
-            $item -eq $null | Should Be $false
+            $item | Should Not Be $null
             $item.GetType().FullName | Should Be 'SimpleClass'
         }
         It "Name property is set correctly" {
