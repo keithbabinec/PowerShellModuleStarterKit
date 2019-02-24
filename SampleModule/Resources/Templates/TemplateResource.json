@@ -1,0 +1,5 @@
+{
+    "ID": 1,
+    "Name": "Sample document",
+    "Description": "This is a JSON blob that can be loaded as a module resource. See the module manifest to see how the file is referenced for packaging."
+}
