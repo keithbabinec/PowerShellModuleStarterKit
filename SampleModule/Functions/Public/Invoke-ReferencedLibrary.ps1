@@ -9,7 +9,7 @@ function Invoke-ReferencedLibrary
         The test will serialize an object to JSON and return the contents.
 
     .EXAMPLE
-        PS C:\> Test-ReferencedLibrary
+        PS C:\> Invoke-ReferencedLibrary
         Tests the referenced library by serializing an object and returning the contents.
     #>
     [CmdletBinding()]
@@ -26,7 +26,7 @@ function Invoke-ReferencedLibrary
 
         $item = New-AdvancedItem -Name 'Test'
 
-        $itemAsJson = [Newtonsoft.Json.JsonConvert]::SerializeObject($item);
+        $itemAsJson = [Newtonsoft.Json.JsonConvert]::SerializeObject($item)
 
         Write-Output $itemAsJson
     }
