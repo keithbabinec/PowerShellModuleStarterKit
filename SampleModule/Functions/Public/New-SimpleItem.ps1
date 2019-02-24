@@ -14,9 +14,9 @@ function New-SimpleItem
         The age of the item.
 
     .EXAMPLE
-        New-SimpleItem -Name 'Test' -Age 42
+        PS C:\> New-SimpleItem -Name 'Test' -Age 42
+        Returns a new simple item object.
     #>
-
     [CmdletBinding()]
     Param
     (
@@ -28,7 +28,6 @@ function New-SimpleItem
         [System.Int32]
         $Age
     )
-
     Process
     {
         # make the new item and return it

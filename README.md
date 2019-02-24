@@ -1,16 +1,41 @@
 # PowerShellModuleStarterKit
-A starter kit for new PowerShell script modules including unit tests.
+A starter kit for new PowerShell script modules.
 
-Contains a basic .psd1 (manifest) and .psm1 (root module), class examples, function examples, and unit tests.
+This repository demonstrates how to organize a module and accomplish a few common tasks like public vs private functions, unit tests, working with classes, and more. 
 
-### Prerequisites
+## Features
+* Public and private functions.
+* Unit testing with the Pester framework.
+* PowerShell v5 classes (accessible inside and outside the module scope).
+* Module private data (for constants and caching).
+* Referencing static resource files.
+* Referencing external libraries.
 
-In order to run the unit tests, you need the Pester test framework (https://github.com/pester/Pester).
+## Setup
+1. Clone the repository to your local computer.
+2. Open PowerShell (as an administrator).
+3. Install the [Pester](https://github.com/pester/Pester) framework:
+``` powershell
+Install-Module -Name Pester -MinimumVersion 4.6.0 -Scope AllUsers -Force -SkipPublisherCheck
+```
+4. Add this starter kit module to the PSModule path.
+***Note: This assumes you have cloned the repository to C:\Source. Update the path if this isn't correct.***
+``` powershell
+$repoDirectory = 'C:\Source\PowerShellModuleStarterKit'
+$existingPaths = $ENV:PSModulePath
+$newPaths = "$repoDirectory;$existingPaths"
+$scope = [System.EnvironmentVariableTarget]::Machine
+[System.Environment]::SetEnvironmentVariable('PSModulePath',$newPaths,$scope)
+```
 
-Once Pester is installed and in your PSModule path, run the Invoke-Pester cmdlet (no args) from the root of the repository. It will find and run the tests for you.
+## Load the module
+``` powershell
+Import-Module -Name SampleModule
+```
 
-### Notes
-
-This module can be loaded by calling Import-Module on either the module manifest (.psd1), or the root module (.psm1) file.
-
-For the sake of easy unit testing, the .psm1 file is referenced for test imports. This is because the private functions and (non-exportable classes) are easily found and loaded.
+## Run the unit tests
+***Note: This assumes you have cloned the repository to C:\Source. Update the path if this isn't correct.***
+``` powershell
+cd 'C:\Source\PowerShellModuleStarterKit\SampleModule'
+Invoke-Pester
+```

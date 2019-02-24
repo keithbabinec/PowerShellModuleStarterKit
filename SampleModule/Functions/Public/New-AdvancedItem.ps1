@@ -11,9 +11,9 @@ function New-AdvancedItem
         The name of the item.
 
     .EXAMPLE
-        New-AdvancedItem -Name 'Test'
+        PS C:\> New-AdvancedItem -Name 'Test'
+        Returns a new advanced item object.
     #>
-
     [CmdletBinding()]
     Param
     (
@@ -21,7 +21,6 @@ function New-AdvancedItem
         [System.String]
         $Name
     )
-
     Process
     {
         # make the new item and return it

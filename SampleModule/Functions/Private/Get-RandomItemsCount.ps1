@@ -5,16 +5,16 @@ function Get-RandomItemsCount
         Gets a random item count.
 
     .DESCRIPTION
-        Gets a random item count.
+        Gets a random item count, between the numbers 1 and 8.
 
     .EXAMPLE
-        Get-RandomItemsCount
+        PS C:\> Get-RandomItemsCount
+        Returns a random items count.
     #>
-
     [CmdletBinding()]
     Param
-    ()
-
+    (
+    )
     Process
     {
         # generate a random number and return it

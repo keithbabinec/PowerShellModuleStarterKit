@@ -1,5 +1,5 @@
 # load the module
-Import-Module .\ScriptModule.psm1
+Import-Module SampleModule -Force
 
 # run tests
 Describe "New-AdvancedItem public function tests" {
@@ -11,7 +11,7 @@ Describe "New-AdvancedItem public function tests" {
         }
         It "Returns the correct type" {
             $item = New-AdvancedItem -Name 'Cool'
-            $item -eq $null | Should Be $false
+            $item | Should Not Be $null
             $item.GetType().FullName | Should Be 'AdvancedClass'
         }
         It "Name property is set" {
@@ -24,7 +24,7 @@ Describe "New-AdvancedItem public function tests" {
         }
         It "Items collection is populated" {
             $item = New-AdvancedItem -Name 'Cool'
-            $item.Items -ne $null | Should Be $true
+            $item.Items | Should Not Be $null
             $item.Items.Count | Should BeGreaterThan 0
         }
     }
